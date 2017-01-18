@@ -9,7 +9,6 @@ import java.util.concurrent.*;
 import static org.mockito.Matchers.anyLong;
 import static org.mockito.Matchers.anyObject;
 import static org.mockito.Mockito.*;
-import static org.testng.Assert.*;
 
 public class MonitorServiceTest {
 
@@ -18,6 +17,7 @@ public class MonitorServiceTest {
         System.clearProperty("monitor_props_file");
     }
 
+    //{property file name, expect to be scheduled}
     @DataProvider(name = "configProvider")
     public Object[][] getConfiguration() {
         return new Object[][] {
@@ -26,6 +26,14 @@ public class MonitorServiceTest {
                 {"/test-no-url.properties", false}
         };
     }
+
+    /**
+     * Tests the configuration and scheduing of the monitor
+     *
+     * @param propFile Name of the property file to be used during configuration
+     * @param expectToBeScheduled Whether the task should be expected to be scheduled
+     * @throws Exception
+     */
     @Test(dataProvider = "configProvider")
     public void testStart(String propFile, boolean expectToBeScheduled) throws Exception {
         ScheduledExecutorService mockScheduledExecutorService = mock(ScheduledExecutorService.class);

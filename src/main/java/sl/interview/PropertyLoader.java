@@ -5,9 +5,16 @@ import java.io.InputStream;
 import java.util.Properties;
 
 /**
- * Created by mwaldtha on 1/17/17.
+ * Utility class for loading values from property files.
  */
 public class PropertyLoader {
+
+    /**
+     * Method for creating a Properties object from a file.
+     *
+     * @param propertyFile The property file to load
+     * @return A Properties object containing all the properties found in the supplied file
+     */
     public static Properties load(String propertyFile) {
         Properties loadedProps = new Properties();
 

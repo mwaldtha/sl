@@ -8,7 +8,7 @@ import static org.mockito.Mockito.verify;
 public class URLMonitorTest {
 
     /**
-     * Tests that the main method actualy invokes the start method of the MonitorService
+     * Tests that the main method actually invokes the start method of the MonitorService
      *
      * @throws Exception
      */
